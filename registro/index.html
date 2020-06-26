@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style/style.css?rnd=132">
+  
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img src ="bgimg/bg00001.jpg"/></nobr></div>
+      <p><span style="font-family:Helvetica;font-size:14.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position: absolute; top: 152px; left: 10px"><nobr>Student name (required) :<br>
+      <input type="text" id="ea3_regNA" size="40" tabindex=1></nobr></span></span></p>
+      <p><span style="font-family:Helvetica;font-size:14.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position: absolute; top: 250px; left: 12px"><nobr>Group (required): <br>
+      <input type="text" id="ea3_regGP" size="5" tabindex=3></nobr></span></span></p>
+      <p><span style="font-family:Helvetica;font-size:14.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position: absolute; top: 202px; left: 12px; width: 451px;"><nobr>E-mail (required) :<br>
+      <input type="text" id="ea3_regCA" size="40" tabindex=2></nobr></span></span></p>
+      <p><span style="font-family:Helvetica;font-size:14.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position: absolute; top: 315px; left: 10px; width: 442px; height: 20px;"><nobr>Teacher's name (required) :<br>
+      <input type="text" id="ea3_regND" size="40" tabindex=4></nobr></span></span></p>
+      <p><span style="font-family:Helvetica;font-size:14.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position: absolute; top: 379px; left: 10px"><nobr>Teacher's e-mail (required) :<br>
+      <input type="text" id="ea3_regCD" size="40" tabindex=5><br>
+      <br>
+      <input type="button" onClick="save_data()" value="Save"  class="btn btn-primary">
+      <br></nobr></span></span></p><p><span style="font-family:Helvetica;font-size:24.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position: absolute; top: 118px; left: 8px"><nobr>Personal information </nobr></span></span></p>      
+    </div>
+
+</body>
+<script type="text/javascript">
+    //Cargar datos
+    document.getElementById('ea3_regNA').value = localStorage.getItem('ea3_regNA');
+    document.getElementById('ea3_regGP').value = localStorage.getItem('ea3_regGP');
+    document.getElementById('ea3_regCA').value = localStorage.getItem('ea3_regCA');
+    document.getElementById('ea3_regND').value = localStorage.getItem('ea3_regND');
+    document.getElementById('ea3_regCD').value = localStorage.getItem('ea3_regCD');
+    //fin cargar datos
+    function save_data(){
+
+        var ea3_regNA = document.getElementById('ea3_regNA').value;
+        localStorage.setItem('ea3_regNA', ea3_regNA);
+        var ea3_regGP = document.getElementById('ea3_regGP').value;
+        localStorage.setItem('ea3_regGP', ea3_regGP);
+        var ea3_regND = document.getElementById('ea3_regND').value;
+        localStorage.setItem('ea3_regND', ea3_regND);
+        var ea3_regCA = document.getElementById('ea3_regCA').value;
+        localStorage.setItem('ea3_regCA', ea3_regCA);
+        var ea3_regCD = document.getElementById('ea3_regCD').value;
+        localStorage.setItem('ea3_regCD', ea3_regCD);
+
+        alert("Saved correctly");
+    }
+</script>
+</html> 

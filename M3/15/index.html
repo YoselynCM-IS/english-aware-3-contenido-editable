@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style/style.css?rnd=132">
+  
+    <!--***** dos lineas de scripts para guardar imagen-->
+    <script type="text/javascript" src="../../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+    <!--***** Fin de dos lineas de scripts para guardar imagen-->
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
+        <!--Empezar a agregar contenido-->
+      <span style="position: absolute; top: 519px; left: 310px">
+	  <textarea rows = "1" cols = "10" maxlength = "10" id="ea3_p60res1"></textarea>
+	  </span>
+        <span style="position: absolute; top: 559px; left: 302px">
+			<textarea rows = "1" cols = "12" maxlength = "12" id="ea3_p60res2"></textarea>
+		</span>
+	  <span style="position: absolute; top: 600px; left: 333px">
+	  <textarea rows = "1" cols = "10" maxlength = "10" id="ea3_p60res3"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 620px; left: 90px">
+	  <textarea rows = "1" cols = "7" maxlength = "7" id="ea3_p60res4"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 640px; left: 273px">
+	  <textarea rows = "1" cols = "15" maxlength = "15" id="ea3_p60res5"></textarea>
+	  </span>
+		<span style="position: absolute; top: 680px; left: 267px">
+			<textarea rows = "1" cols = "10" maxlength = "10" id="ea3_p60res6"></textarea>
+		</span>
+		
+		<span style="position: absolute; top: 680px; left: 593px">
+			<textarea rows = "1" cols = "13" maxlength = "13" id="ea3_p60res7"></textarea>
+		</span>
+	  <span style="position: absolute; top: 721px; left: 549px">
+	  <textarea rows = "1" cols = "13" maxlength = "13" id="ea3_p60res8"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 761px; left: 667px">
+	  <textarea rows = "1" cols = "13" maxlength = "13" id="ea3_p60res9"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 781px; left: 571px">
+	  <textarea rows = "1" cols = "11" maxlength = "11" id="ea3_p60res10"></textarea>
+	  </span>
+		<span style="position: absolute; top: 801px; left: 651px">
+			<textarea rows = "1" cols = "14" maxlength = "14" id="ea3_p60res11"></textarea>
+		</span>
+		
+       
+        <!--Fin del contenido-->
+           <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<form style="margin-top: 1050px;margin-left: 190px; position: absolute; z-index: 2;" id="myForm" action="../../send.php" method="post">
+			<textarea style="display:none;" id="myInput" name = "imagen" maxlength="10"></textarea>
+			<input type="button" onclick="save_data()" value="Save"  class="btn btn-primary">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="send_data(); loader(); return false" value="Send" class="btn btn-primary"> 
+			<input type="hidden" id="ea3_regNA" name="ea3_regNA">
+			<input type="hidden" id="ea3_regGP" name="ea3_regGP">
+			<input type="hidden" id="ea3_regCA" name="ea3_regCA">
+			<input type="hidden" id="ea3_regND" name="ea3_regND">
+			<input type="hidden" id="ea3_regCD" name="ea3_regCD">
+		</form>
+
+		<!-- FIN FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<div id="loader" style="display:none; margin-top: 1040px;margin-left: 190px; position: absolute; z-index: 2;">
+			<img src="../../img/carga.gif"  width="180px" height="65px">
+		</div>
+            
+    </div>       
+</body>
+<script type="text/javascript">
+	//Carga datos del registro
+    document.getElementById('ea3_regNA').value = localStorage.getItem('ea3_regNA');
+    document.getElementById('ea3_regGP').value = localStorage.getItem('ea3_regGP');
+    document.getElementById('ea3_regCA').value = localStorage.getItem('ea3_regCA');
+    document.getElementById('ea3_regND').value = localStorage.getItem('ea3_regND');
+    document.getElementById('ea3_regCD').value = localStorage.getItem('ea3_regCD');
+
+	 document.getElementById('ea3_p60res1').value = localStorage.getItem('ea3_p60res1');
+    document.getElementById('ea3_p60res2').value = localStorage.getItem('ea3_p60res2');
+    document.getElementById('ea3_p60res3').value = localStorage.getItem('ea3_p60res3');
+    document.getElementById('ea3_p60res4').value = localStorage.getItem('ea3_p60res4');
+    document.getElementById('ea3_p60res5').value = localStorage.getItem('ea3_p60res5');
+    document.getElementById('ea3_p60res6').value = localStorage.getItem('ea3_p60res6');
+    document.getElementById('ea3_p60res7').value = localStorage.getItem('ea3_p60res7');
+    document.getElementById('ea3_p60res8').value = localStorage.getItem('ea3_p60res8');
+    document.getElementById('ea3_p60res9').value = localStorage.getItem('ea3_p60res9');
+    document.getElementById('ea3_p60res10').value = localStorage.getItem('ea3_p60res10');
+    document.getElementById('ea3_p60res11').value = localStorage.getItem('ea3_p60res11');
+    
+
+    function save_data(){
+        var ea3_p60res1 = document.getElementById('ea3_p60res1').value;
+        localStorage.setItem('ea3_p60res1', ea3_p60res1);
+        var ea3_p60res2 = document.getElementById('ea3_p60res2').value;
+        localStorage.setItem('ea3_p60res2', ea3_p60res2);
+        var ea3_p60res3 = document.getElementById('ea3_p60res3').value;
+        localStorage.setItem('ea3_p60res3', ea3_p60res3);
+        var ea3_p60res4 = document.getElementById('ea3_p60res4').value;
+        localStorage.setItem('ea3_p60res4', ea3_p60res4);
+        var ea3_p60res5 = document.getElementById('ea3_p60res5').value;
+        localStorage.setItem('ea3_p60res5', ea3_p60res5);
+        var ea3_p60res6 = document.getElementById('ea3_p60res6').value;
+        localStorage.setItem('ea3_p60res6', ea3_p60res6);
+        var ea3_p60res7 = document.getElementById('ea3_p60res7').value;
+        localStorage.setItem('ea3_p60res7', ea3_p60res7);
+        var ea3_p60res8 = document.getElementById('ea3_p60res8').value;
+        localStorage.setItem('ea3_p60res8', ea3_p60res8);
+        var ea3_p60res9 = document.getElementById('ea3_p60res9').value;
+        localStorage.setItem('ea3_p60res9', ea3_p60res9);
+        var ea3_p60res10 = document.getElementById('ea3_p60res10').value;
+        localStorage.setItem('ea3_p60res10', ea3_p60res10);
+        var ea3_p60res11 = document.getElementById('ea3_p60res11').value;
+        localStorage.setItem('ea3_p60res11', ea3_p60res11);
+        
+
+        alert("Saved correctly");
+    }
+
+    function send_data(){
+        pantallazo();
+        setTimeout(function(){document.getElementById("myForm").submit();}, 3000);
+    }
+
+    function pantallazo(){
+
+        html2canvas(document.body).then(canvas => {
+        	var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById("myInput").value = dataURL;
+            var canvas = document.createElement("canvas");
+            var ctx=canvas.getContext("2d");
+            var cw=canvas.width;
+            var ch=canvas.height;
+            var maxW=1280;
+            var maxH=1024;
+
+            var output = document.getElementById('myInput');
+	        var img = new Image;
+            img.onload = function() {
+                var iw=img.width;
+                var ih=img.height;
+                var scale=Math.min((maxW/iw),(maxH/ih));
+                var iwScaled=iw*scale;
+                var ihScaled=ih*scale;
+                canvas.width=iwScaled;
+                canvas.height=ihScaled;
+                ctx.drawImage(img,0,0,iwScaled,ihScaled);
+     	        output.value = canvas.toDataURL("../image/jpeg",1);
+            }
+            img.src = dataURL
+        });
+    }
+    
+    function loader(){
+		document.getElementById('loader').style.display = 'Block';
+ 
+	}
+
+</script>
+
+</html>

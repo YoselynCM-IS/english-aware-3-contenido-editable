@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../style/style.css?rnd=132">
+  
+    <!--***** dos lineas de scripts para guardar imagen-->
+    <script type="text/javascript" src="../../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../../js/html2canvas.min.js"></script>
+    <!--***** Fin de dos lineas de scripts para guardar imagen-->
+
+</head>
+
+<body>
+
+    <div id="contenedor">
+      <div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1099.000000" width="872.000000" src ="bgimg/fondo.jpg"/></nobr></div>
+        <!--Empezar a agregar contenido-->
+        <span style="position: absolute; top: 417px; left: 150px">
+			<textarea rows = "1" cols = "8" maxlength = "8" id="ea3_p28res1"></textarea>
+		</span>
+	  <span style="position: absolute; top: 457px; left: 176px">
+	  <textarea rows = "1" cols = "12" maxlength = "12" id="ea3_p28res2"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 498px; left: 152px">
+	  <textarea rows = "1" cols = "15" maxlength = "15" id="ea3_p28res3"></textarea>
+	  </span>
+	  <span style="position: absolute; top: 538px; left: 139px">
+	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea3_p28res4"></textarea>
+	  </span>
+		<span style="position: absolute; top: 558px; left: 145px">
+			<textarea rows = "1" cols = "8" maxlength = "8" id="ea3_p28res5"></textarea>
+		</span>
+		
+      <div id="ea3_p28res6-zone" style="position: absolute; top: 474px; left: 450px; width: 308px; height: 300px;">
+			<img id="ea3_p28res6" src="bgimg/01.jpg" height="268" width="367"> 
+		</div>
+      <script type="text/javascript">
+			var ea3_p28res6 = document.getElementById('ea3_p28res6');
+			if (localStorage.getItem("Img_ea3_p28res6") === null) {
+				var dataImage = "bgimg/01.jpg"
+			}
+			else {
+				var dataImage = localStorage.getItem('Img_ea3_p28res6');
+			}
+			ea3_p28res6.src = dataImage;
+			var previewZone = document.getElementById('ea3_p28res6-zone');
+			previewZone.appendChild(ea3_p28res6);
+		</script>
+
+		<div id="divFileUpload" style="position:absolute;top:455px;left:480px">
+			<input class="btn btn-primary" id="file-upload" type="file" accept="image/*" />
+		</div>
+       
+        <!--Fin del contenido-->
+           <!-- FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<form style="margin-top: 1030px;margin-left: 190px; position: absolute; z-index: 2;" id="myForm" action="../../send.php" method="post">
+			<textarea style="display:none;" id="myInput" name = "imagen" maxlength="10"></textarea>
+			<input type="button" onclick="save_data()" value="Save"  class="btn btn-primary">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="send_data(); loader(); return false" value="Send" class="btn btn-primary"> 
+			<input type="hidden" id="ea3_regNA" name="ea3_regNA">
+			<input type="hidden" id="ea3_regGP" name="ea3_regGP">
+			<input type="hidden" id="ea3_regCA" name="ea3_regCA">
+			<input type="hidden" id="ea3_regND" name="ea3_regND">
+			<input type="hidden" id="ea3_regCD" name="ea3_regCD">
+		</form>
+
+		<!-- FIN FORMULARIO AL FINAL DEL CONTENIDO -->
+
+		<div id="loader" style="display:none; margin-top: 1020px;margin-left: 190px; position: absolute; z-index: 2;">
+			<img src="../../img/carga.gif"  width="180px" height="65px">
+		</div>
+            
+    </div>       
+</body>
+<script>
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+     
+            reader.onload = function (e) {
+                var ea3_p28res6 = document.getElementById('ea3_p28res6');
+                //e.target.result contents the base64 data from the image uploaded
+                ea3_p28res6.src = e.target.result;
+                console.log(e.target.result);
+     
+                var previewZone = document.getElementById('ea3_p28res6-zone');
+                previewZone.appendChild(ea3_p28res6);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+     
+    var fileUpload = document.getElementById('file-upload');
+    fileUpload.onchange = function (e) {
+        //document.getElementById('file-preview-zone').innerHTML = "";
+        readFile(e.srcElement);
+    }
+     
+</script>
+<script type="text/javascript">
+	//Carga datos del registro
+    document.getElementById('ea3_regNA').value = localStorage.getItem('ea3_regNA');
+    document.getElementById('ea3_regGP').value = localStorage.getItem('ea3_regGP');
+    document.getElementById('ea3_regCA').value = localStorage.getItem('ea3_regCA');
+    document.getElementById('ea3_regND').value = localStorage.getItem('ea3_regND');
+    document.getElementById('ea3_regCD').value = localStorage.getItem('ea3_regCD');
+
+	 document.getElementById('ea3_p28res1').value = localStorage.getItem('ea3_p28res1');
+    document.getElementById('ea3_p28res2').value = localStorage.getItem('ea3_p28res2');
+    document.getElementById('ea3_p28res3').value = localStorage.getItem('ea3_p28res3');
+    document.getElementById('ea3_p28res4').value = localStorage.getItem('ea3_p28res4');
+    document.getElementById('ea3_p28res5').value = localStorage.getItem('ea3_p28res5');
+    
+
+    function save_data(){
+		//local storage
+        bannerImage = document.getElementById('ea3_p28res6').src;
+        localStorage.setItem("Img_ea3_p28res6", bannerImage);
+		
+        var ea3_p28res1 = document.getElementById('ea3_p28res1').value;
+        localStorage.setItem('ea3_p28res1', ea3_p28res1);
+        var ea3_p28res2 = document.getElementById('ea3_p28res2').value;
+        localStorage.setItem('ea3_p28res2', ea3_p28res2);
+        var ea3_p28res3 = document.getElementById('ea3_p28res3').value;
+        localStorage.setItem('ea3_p28res3', ea3_p28res3);
+        var ea3_p28res4 = document.getElementById('ea3_p28res4').value;
+        localStorage.setItem('ea3_p28res4', ea3_p28res4);
+        var ea3_p28res5 = document.getElementById('ea3_p28res5').value;
+        localStorage.setItem('ea3_p28res5', ea3_p28res5);
+        
+        alert("Saved correctly");
+    }
+
+    function send_data(){
+        pantallazo();
+        setTimeout(function(){document.getElementById("myForm").submit();}, 3000);
+    }
+
+    function pantallazo(){
+
+        html2canvas(document.body).then(canvas => {
+        	var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById("myInput").value = dataURL;
+            var canvas = document.createElement("canvas");
+            var ctx=canvas.getContext("2d");
+            var cw=canvas.width;
+            var ch=canvas.height;
+            var maxW=1280;
+            var maxH=1024;
+
+            var output = document.getElementById('myInput');
+	        var img = new Image;
+            img.onload = function() {
+                var iw=img.width;
+                var ih=img.height;
+                var scale=Math.min((maxW/iw),(maxH/ih));
+                var iwScaled=iw*scale;
+                var ihScaled=ih*scale;
+                canvas.width=iwScaled;
+                canvas.height=ihScaled;
+                ctx.drawImage(img,0,0,iwScaled,ihScaled);
+     	        output.value = canvas.toDataURL("../image/jpeg",1);
+            }
+            img.src = dataURL
+        });
+    }
+    
+    function loader(){
+		document.getElementById('loader').style.display = 'Block';
+ 
+	}
+
+</script>
+
+</html>p28res
