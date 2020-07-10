@@ -20,21 +20,7 @@ $ea3_regCA = $_POST["ea3_regCA"];
 $ea3_regND = $_POST["ea3_regND"];
 $ea3_regCD = $_POST["ea3_regCD"];
 $ea3_regNA = $_POST["ea3_regNA"];
-/*
-echo $imagen;
-echo "<br>";
-echo $ea3_regGP;
-echo "<br>";
-echo $ea3_regCA;
-echo "<br>";
-echo $ea3_regND;
-echo "<br>";
-echo $ea3_regCD;
-echo "<br>";
-echo $ea3_regNA;
-echo "<br>";
-//die("fin");
-**/
+
 $imagen = preg_replace('#^data:image/[^;]+;base64,#', '', $imagen); 
 $mensaje = '<b>English Aware 3</b><br><b>Student name: </b>'.$ea3_regNA.'<br><b>Group: </b> '.$ea3_regGP.'<br><b>Teacher: </b>'.$ea3_regND;
 
