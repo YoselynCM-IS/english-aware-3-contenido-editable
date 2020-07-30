@@ -51,8 +51,11 @@
       <span style="position: absolute; top: 216px; left: 583px">
 	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea3_p46res11"></textarea>
 		</span>
-      <span style="position: absolute; top: 256px; left: 509px">
-	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea3_p46res12"></textarea>
+      <span style="position: absolute; top: 239px; left: 516px">
+	  <textarea rows = "1" cols = "11" maxlength = "11" id="ea3_p46res12"></textarea>
+		</span>
+     <span style="position: absolute; top: 256px; left: 507px">
+	  <textarea rows = "1" cols = "8" maxlength = "8" id="ea3_p46res16"></textarea>
 		</span>
       <span style="position: absolute; top: 256px; left: 757px">
 	  <textarea rows = "1" cols = "5" maxlength = "5" id="ea3_p46res13"></textarea>
@@ -110,6 +113,7 @@
     document.getElementById('ea3_p46res13').value = localStorage.getItem('ea3_p46res13');
     document.getElementById('ea3_p46res14').value = localStorage.getItem('ea3_p46res14');
     document.getElementById('ea3_p46res15').value = localStorage.getItem('ea3_p46res15');
+	document.getElementById('ea3_p46res16').value = localStorage.getItem('ea3_p46res16');
     
 
     function save_data(){
@@ -143,6 +147,8 @@
         localStorage.setItem('ea3_p46res14', ea3_p46res14);
         var ea3_p46res15 = document.getElementById('ea3_p46res15').value;
         localStorage.setItem('ea3_p46res15', ea3_p46res15);
+		var ea3_p46res16 = document.getElementById('ea3_p46res16').value;
+        localStorage.setItem('ea3_p46res16', ea3_p46res16);
         
 
         alert("Saved correctly");
